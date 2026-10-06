@@ -1,0 +1,141 @@
+{
+  "data": {
+    "eia": "WCESTUS1, W_EPC0_SAX_YCUOK_MBBL, WCRFPUS2, WCREXUS2 (weekly)",
+    "prices": "FRED DCOILBRENTEU, DCOILWTICO",
+    "eia_last": "2026-09-25",
+    "price_last": "2026-09-29"
+  },
+  "snapshot": {
+    "week_ending": "2026-09-25",
+    "us_commercial_stocks_mb": 427.3,
+    "us_vs_5y_avg_pct": 1.9,
+    "cushing_stocks_mb": 24.3,
+    "cushing_vs_5y_avg_pct": -7.0,
+    "cushing_5y_range_mb": [
+      22.1,
+      35.5
+    ],
+    "production_mbd": 13.96,
+    "exports_mbd": 3.57,
+    "brent_wti_spread": 17.8,
+    "export_arb_after_freight": 14.8
+  },
+  "export_flow_response_2018_2026": {
+    "lag_weeks_peak": 4,
+    "corr_at_peak": 0.309,
+    "kbd_per_usd_spread": 61.4,
+    "newey_west_t": 8.77,
+    "share_days_arb_open": 0.721,
+    "lag_profile": {
+      "0": 0.164,
+      "1": 0.17,
+      "2": 0.25,
+      "3": 0.306,
+      "4": 0.309,
+      "5": 0.297,
+      "6": 0.286,
+      "7": 0.214,
+      "8": 0.224,
+      "9": 0.169,
+      "10": 0.128,
+      "11": 0.122,
+      "12": 0.05
+    }
+  },
+  "inventory_surprise_tests_2010_2026": {
+    "us_stocks_kb_surprise -> wti_ret_next": {
+      "slope_per_mb": 0.00027,
+      "t_stat": 0.56,
+      "corr": 0.024,
+      "weeks": 772
+    },
+    "cushing_kb_surprise -> spread_chg_next": {
+      "slope_per_mb": 0.03676,
+      "t_stat": 1.06,
+      "corr": 0.029,
+      "weeks": 772
+    }
+  },
+  "fundamental_regimes": {
+    "2010-2014": {
+      "corr_spread_vs_cushing_tightness": 0.61,
+      "mean_spread": 10.95
+    },
+    "2015-2019": {
+      "corr_spread_vs_cushing_tightness": -0.56,
+      "mean_spread": 4.11
+    },
+    "2020-2026": {
+      "corr_spread_vs_cushing_tightness": -0.06,
+      "mean_spread": 4.45
+    }
+  },
+  "strategy": {
+    "selected_params_in_sample": {
+      "lookback": 13,
+      "entry": 1.5,
+      "exit": 0.5,
+      "stop": 3.0,
+      "lots": 100.0,
+      "cost_per_bbl": 0.02
+    },
+    "performance": {
+      "in_sample_2012_2017": {
+        "total_usd_m": 3.75,
+        "annual_usd_m": 0.62,
+        "sharpe": 0.82,
+        "max_drawdown_usd_m": -1.03,
+        "hit_rate_active_weeks": 0.432,
+        "active_share": 0.466,
+        "weeks": 313
+      },
+      "out_of_sample_2018_2026": {
+        "total_usd_m": 5.79,
+        "annual_usd_m": 0.66,
+        "sharpe": 0.72,
+        "max_drawdown_usd_m": -1.21,
+        "hit_rate_active_weeks": 0.511,
+        "active_share": 0.52,
+        "weeks": 456
+      },
+      "oos_default_params": {
+        "total_usd_m": 4.46,
+        "annual_usd_m": 0.51,
+        "sharpe": 0.41,
+        "max_drawdown_usd_m": -2.18,
+        "hit_rate_active_weeks": 0.511,
+        "active_share": 0.721,
+        "weeks": 456
+      },
+      "oos_gross_no_costs": {
+        "total_usd_m": 6.12,
+        "annual_usd_m": 0.7,
+        "sharpe": 0.76,
+        "max_drawdown_usd_m": -1.2,
+        "hit_rate_active_weeks": 0.617,
+        "active_share": 0.43,
+        "weeks": 456
+      }
+    },
+    "oos_pnl_by_year_usd_m": {
+      "2018": 0.26,
+      "2019": 0.47,
+      "2020": 1.29,
+      "2021": 0.59,
+      "2022": 0.94,
+      "2023": 0.5,
+      "2024": 0.71,
+      "2025": 0.59,
+      "2026": 0.45
+    },
+    "oos_sharpe_vs_cost_per_bbl": {
+      "0.0": 0.76,
+      "0.02": 0.72,
+      "0.05": 0.66,
+      "0.1": 0.55
+    },
+    "grid_share_positive_sharpe_in_sample": 0.815,
+    "grid_share_positive_sharpe_out_of_sample": 0.87,
+    "grid_median_oos_sharpe": 0.34
+  }
+}
