@@ -91,7 +91,10 @@ def grid_search(spread: pd.Series, base: RuleParams, grid: dict) -> pd.DataFrame
             continue
         perf = performance(backtest(spread, p)["pnl"])
         rows.append({**dict(zip(grid, combo)), **perf})
-    return pd.DataFrame(rows).sort_values("sharpe", ascending=False)
+    # Ties in (rounded) Sharpe go to the tighter stop, with a stable sort so the pick is platform-independent
+    df = pd.DataFrame(rows)
+    keys = ["sharpe"] + (["stop"] if "stop" in df else [])
+    return df.sort_values(keys, ascending=[False] + [True] * (len(keys) - 1), kind="mergesort")
 
 
 def lagged_correlation(x: pd.Series, y: pd.Series, lags: range) -> pd.Series:
